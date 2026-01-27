@@ -10,10 +10,6 @@ class Program {
         // voltas.CheckStatus();
 
         AirConditioner newVoltas = new AirConditioner(voltas);
-        // newVoltas.CheckStatus();
-
-        Console.WriteLine(voltas.GetHashCode());
-        Console.WriteLine(newVoltas.GetHashCode());
 
         Console.WriteLine("\n");
 

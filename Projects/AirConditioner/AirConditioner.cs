@@ -17,7 +17,7 @@ public enum ACmode
     Dry
 }
 
-class AirConditioner : AC
+partial class AirConditioner : AC   // ✅ FIXED
 {
     static int totalAirConditioners;
 
