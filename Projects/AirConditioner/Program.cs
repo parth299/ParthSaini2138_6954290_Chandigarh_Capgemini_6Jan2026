@@ -4,17 +4,23 @@ class Program {
     public static void Main(string[] args) {
         AirConditioner voltas = new AirConditioner("voltas");
 
-        // voltas.ChangeMode("Dry");
-        // voltas.ChangeTemperature(30);
+        voltas.ChangeMode("Dry");
+        voltas.ChangeTemperature(30);
 
-        // voltas.CheckStatus();
+        voltas.CheckStatus();
 
         AirConditioner newVoltas = new AirConditioner(voltas);
 
         Console.WriteLine("\n");
 
         voltas.ChangeMode("Fan");
-        voltas.ChangeTemperature(16);
+
+        try {
+            voltas.ChangeTemperature(16);
+        }
+        catch(ArgumentOutOfRangeException ex) {
+            Console.WriteLine(ex.Message);
+        }
 
         voltas.CheckStatus();
         newVoltas.CheckStatus();

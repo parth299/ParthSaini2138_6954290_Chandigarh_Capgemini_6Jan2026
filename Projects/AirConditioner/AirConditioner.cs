@@ -17,7 +17,7 @@ public enum ACmode
     Dry
 }
 
-partial class AirConditioner : AC   // ✅ FIXED
+partial class AirConditioner : AC  
 {
     static int totalAirConditioners;
 
@@ -100,15 +100,14 @@ partial class AirConditioner : AC   // ✅ FIXED
     public void ChangeTemperature(int temperature)
     {
         if (temperature < 15 || temperature > 30)
-        {
-            Console.WriteLine("Please enter a valid temperature!\n");
-        }
-        else
-        {
-            this.temperature = temperature;
-            Console.WriteLine("Updated temperature: " + this.temperature + "\n");
-        }
+            throw new ArgumentOutOfRangeException(
+                nameof(temperature),
+                "Temperature must be between 15 and 30."
+            );
+
+        this.temperature = temperature;
     }
+
 }
 
 partial class AirConditioner
